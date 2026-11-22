@@ -1,0 +1,399 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080e19">
+<meta name="description" content="Samarth Kharose — SAMCLOUD. Cloud, DevOps, Linux, Networking and Infrastructure portfolio.">
+<title>SAMCLOUD | Samarth Kharose</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#080e19;
+  --panel:#0e1928;
+  --panel2:#111f30;
+  --cyan:#62d9f5;
+  --blue:#438cff;
+  --text:#edf5ff;
+  --muted:#93a5b9;
+  --line:rgba(148,190,220,.14);
+  --mono:'DM Mono',monospace;
+  --sans:'Manrope',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:var(--sans);line-height:1.7;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+  background:
+    radial-gradient(ellipse at 80% 5%,rgba(30,122,220,.15),transparent 38%),
+    radial-gradient(ellipse at 10% 50%,rgba(20,170,210,.07),transparent 40%);
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(1100px,90%);margin:auto}
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(8,14,25,.86);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  min-height:76px;display:flex;align-items:center;
+  justify-content:space-between;gap:20px;
+}
+.logo{font-size:22px;font-weight:800;letter-spacing:2px}
+.logo span{color:var(--cyan)}
+.nav-links{display:flex;gap:25px;list-style:none}
+.nav-links a{font-size:12px;color:var(--muted);transition:.2s}
+.nav-links a:hover{color:var(--cyan)}
+.menu{display:none;background:none;border:1px solid var(--line);
+color:white;border-radius:8px;padding:8px 12px}
+.hero{min-height:660px;display:flex;align-items:center;padding:90px 0}
+.eyebrow{
+  color:var(--cyan);font:12px var(--mono);
+  letter-spacing:2px;margin-bottom:22px;
+}
+.hero h1{
+  font-size:clamp(43px,8vw,82px);
+  line-height:1.08;letter-spacing:-4px;
+  font-weight:800;margin-bottom:20px;
+}
+.gradient{
+  background:linear-gradient(100deg,#fff,#64d9f5,#5797ff);
+  background-clip:text;-webkit-background-clip:text;color:transparent;
+}
+.role{font-size:clamp(19px,3vw,28px);font-weight:600;margin-bottom:18px}
+.hero-desc{color:var(--muted);max-width:610px;font-size:15px}
+.actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  gap:9px;padding:12px 20px;border-radius:8px;
+  font-size:12px;font-weight:700;transition:.25s;
+}
+.primary{background:var(--cyan);color:#06111b}
+.secondary{border:1px solid var(--line);color:var(--text)}
+.btn:hover{transform:translateY(-3px)}
+.status{
+  display:inline-flex;align-items:center;gap:9px;
+  margin-top:40px;color:var(--muted);font:11px var(--mono);
+}
+.dot{width:8px;height:8px;border-radius:50%;background:#49d69a;
+box-shadow:0 0 12px #49d69a}
+.section{padding:90px 0;border-top:1px solid var(--line)}
+.section-label{font:11px var(--mono);color:var(--cyan);letter-spacing:2px}
+.section-title{font-size:clamp(29px,5vw,43px);margin:10px 0 15px}
+.section-intro{color:var(--muted);max-width:650px;font-size:14px}
+.about-grid{
+  display:grid;grid-template-columns:1.2fr .8fr;
+  gap:30px;margin-top:40px;
+}
+.panel{
+  background:linear-gradient(145deg,var(--panel2),var(--panel));
+  border:1px solid var(--line);border-radius:14px;padding:28px;
+}
+.panel p{color:var(--muted);font-size:14px;margin-top:12px}
+.terminal{
+  font:12px/2 var(--mono);color:#b8cbdc;
+  background:#080e17;border:1px solid var(--line);
+  border-radius:10px;padding:20px;overflow-wrap:anywhere;
+}
+.terminal .green{color:#65e5b2}
+.terminal .cyan{color:var(--cyan)}
+.skills-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:15px;margin-top:35px;
+}
+.skill{
+  padding:23px;border:1px solid var(--line);
+  border-radius:12px;background:var(--panel);
+}
+.skill h3{font-size:15px;margin-bottom:12px}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tag{
+  padding:6px 10px;border:1px solid var(--line);
+  background:rgba(100,180,220,.05);border-radius:6px;
+  font:10px var(--mono);color:#b8d2e5;
+}
+.projects-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:17px;margin-top:35px;
+}
+.project{
+  padding:26px;border:1px solid var(--line);
+  border-radius:13px;background:var(--panel);
+  transition:.25s;
+}
+.project:hover{border-color:rgba(98,217,245,.5);transform:translateY(-4px)}
+.project-icon{font-size:24px;margin-bottom:17px}
+.project h3{font-size:18px;margin-bottom:8px}
+.project p{font-size:13px;color:var(--muted);margin-bottom:18px}
+.project-status{font:10px var(--mono);color:var(--cyan)}
+.journey{margin-top:35px;border-left:1px solid #28607d;padding-left:25px}
+.journey-item{position:relative;padding:0 0 30px}
+.journey-item:before{
+  content:"";position:absolute;width:9px;height:9px;
+  border-radius:50%;background:var(--cyan);
+  left:-30px;top:8px;box-shadow:0 0 12px var(--cyan);
+}
+.journey-item h3{font-size:15px}
+.journey-item p{font-size:12px;color:var(--muted)}
+.contact-box{
+  margin-top:35px;padding:35px;border:1px solid var(--line);
+  background:linear-gradient(120deg,#102b43,#101a2a);
+  border-radius:15px;
+}
+.contact-box p{color:var(--muted);font-size:14px;margin:12px 0 20px}
+footer{padding:30px 0;border-top:1px solid var(--line)}
+.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+footer p{font:10px var(--mono);color:var(--muted)}
+.reveal{opacity:0;transform:translateY(18px);transition:.7s}
+.reveal.show{opacity:1;transform:translateY(0)}
+@media(max-width:760px){
+ .nav-links{
+  display:none;position:absolute;top:76px;left:0;right:0;
+  background:#0b1523;padding:20px 5%;flex-direction:column;
+  border-bottom:1px solid var(--line);gap:17px;
+ }
+ .nav-links.open{display:flex}
+ .menu{display:block}
+ .hero{min-height:570px;padding:65px 0}
+ .hero h1{letter-spacing:-2px}
+ .about-grid,.skills-grid,.projects-grid{grid-template-columns:1fr}
+ .section{padding:70px 0}
+ .panel{padding:21px}
+}
+</style>
+</head>
+
+<body>
+<nav>
+ <div class="container nav-inner">
+  <a href="#home" class="logo">SAM<span>CLOUD.</span></a>
+  <button class="menu" id="menu" aria-label="Toggle navigation">☰</button>
+  <ul class="nav-links" id="navLinks">
+   <li><a href="#home">HOME</a></li>
+   <li><a href="#about">ABOUT</a></li>
+   <li><a href="#skills">SKILLS</a></li>
+   <li><a href="#projects">PROJECTS</a></li>
+   <li><a href="#journey">JOURNEY</a></li>
+   <li><a href="#contact">CONTACT</a></li>
+  </ul>
+ </div>
+</nav>
+
+<main>
+<section class="hero container" id="home">
+ <div>
+  <p class="eyebrow">☁ CLOUD • DEVOPS • INFRASTRUCTURE</p>
+  <h1>HELLO, WORLD.<br> I'M <span class="gradient">SAMARTH.</span></h1>
+  <div class="role">Aspiring Cloud & DevOps Engineer.</div>
+  <p class="hero-desc">
+   I explore the technology behind modern systems —
+   cloud infrastructure, Linux, networking and automation.
+   Learning by building, experimenting and solving problems.
+  </p>
+  <div class="actions">
+   <a class="btn primary" href="#projects">Explore Projects ↗</a>
+   <a class="btn secondary" href="#contact">Connect With Me</a>
+  </div>
+  <div class="status"><span class="dot"></span> LEARNING • BUILDING • IMPROVING</div>
+ </div>
+</section>
+
+<section class="section" id="about">
+ <div class="container">
+  <div class="section-label">01 / ABOUT ME</div>
+  <h2 class="section-title">Beyond the screen.</h2>
+  <p class="section-intro">Curiosity about how technology works is where my engineering journey begins.</p>
+  <div class="about-grid">
+   <div class="panel">
+    <h3>◈ My Introduction</h3>
+    <p>I'm Samarth Kharose, a Bachelor of Computer Applications (BCA) student interested in cloud computing, infrastructure engineering and DevOps.</p>
+    <p>I'm currently strengthening my fundamentals in programming, operating systems and networking while developing practical projects.</p>
+    <p>My long-term goal is to work with reliable cloud systems, infrastructure monitoring, automation and modern IT operations.</p>
+   </div>
+   <div class="terminal">
+    <span class="green">samarth@samcloud</span>:~$ whoami<br>
+    Aspiring Cloud Engineer<br>
+    <span class="cyan">samarth@samcloud</span>:~$ interests<br>
+    Cloud Infrastructure<br>
+    Linux & Networking<br>
+    Automation & Systems<br>
+    <span class="cyan">samarth@samcloud</span>:~$ status<br>
+    Learning. Building. Growing.
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="skills">
+ <div class="container">
+  <div class="section-label">02 / TECHNICAL ARSENAL</div>
+  <h2 class="section-title">Tools & technologies.</h2>
+  <p class="section-intro">Technologies I'm exploring and using in my learning projects. Proficiency grows with practice.</p>
+  <div class="skills-grid">
+   <div class="skill">
+    <h3>☁ Cloud & Infrastructure</h3>
+    <div class="tags"><span class="tag">AWS Fundamentals</span><span class="tag">Cloud Computing</span><span class="tag">Infrastructure</span></div>
+   </div>
+   <div class="skill">
+    <h3>⌘ Systems & Networking</h3>
+    <div class="tags"><span class="tag">Linux</span><span class="tag">Networking</span><span class="tag">Termux</span></div>
+   </div>
+   <div class="skill">
+    <h3>⚙ Development & Automation</h3>
+    <div class="tags"><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Bash — Learning</span></div>
+   </div>
+   <div class="skill">
+    <h3>⌨ Programming</h3>
+    <div class="tags"><span class="tag">C</span><span class="tag">Python — Learning</span><span class="tag">JavaScript</span></div>
+   </div>
+   <div class="skill">
+    <h3>◫ Web Technologies</h3>
+    <div class="tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">Responsive UI</span></div>
+   </div>
+   <div class="skill">
+    <h3>▣ Backend & Data</h3>
+    <div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">SQLite</span></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="projects">
+ <div class="container">
+  <div class="section-label">03 / SELECTED WORK</div>
+  <h2 class="section-title">Projects & experiments.</h2>
+  <p class="section-intro">Small steps. Practical experiments. Ideas becoming real applications.</p>
+  <div class="projects-grid">
+   <article class="project">
+    <div class="project-icon">☁️</div>
+    <h3>SamStack</h3>
+    <p>A personal cloud storage and workspace management platform concept, with user authentication, private file management and collaborative spaces.</p>
+    <div class="tags"><span class="tag">HTML</span><span class="tag">JavaScript</span><span class="tag">Node.js</span><span class="tag">SQLite</span></div>
+    <br><span class="project-status">● IN DEVELOPMENT</span>
+   </article>
+   <article class="project">
+    <div class="project-icon">⌘</div>
+    <h3>Linux Learning Lab</h3>
+    <p>A growing collection of Linux commands, terminal experiments and system administration fundamentals.</p>
+    <div class="tags"><span class="tag">Linux</span><span class="tag">Termux</span><span class="tag">CLI</span></div>
+    <br><span class="project-status">● LEARNING</span>
+   </article>
+   <article class="project">
+    <div class="project-icon">⇄</div>
+    <h3>Networking Fundamentals</h3>
+    <p>Exploring IP addressing, DNS, HTTP, network architecture and how devices communicate.</p>
+    <div class="tags"><span class="tag">Networking</span><span class="tag">TCP/IP</span><span class="tag">DNS</span></div>
+    <br><span class="project-status">● LEARNING</span>
+   </article>
+   <article class="project">
+    <div class="project-icon">⌨️</div>
+    <h3>Programming Fundamentals</h3>
+    <p>Programming exercises and beginner development projects focused on problem-solving and logical thinking.</p>
+    <div class="tags"><span class="tag">C</span><span class="tag">HTML</span><span class="tag">Python</span></div>
+    <br><span class="project-status">● GROWING</span>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="journey">
+ <div class="container">
+  <div class="section-label">04 / LEARNING PATH</div>
+  <h2 class="section-title">The engineering journey.</h2>
+  <p class="section-intro">A learning roadmap focused on strong fundamentals and practical cloud skills.</p>
+  <div class="journey">
+   <div class="journey-item">
+    <h3>01 — Computer & Programming Fundamentals</h3>
+    <p>Computer architecture, C programming, web fundamentals and problem-solving.</p>
+   </div>
+   <div class="journey-item">
+    <h3>02 — Linux & Networking</h3>
+    <p>Command line, operating systems, IP, DNS, routing and troubleshooting.</p>
+   </div>
+   <div class="journey-item">
+    <h3>03 — Cloud Fundamentals</h3>
+    <p>AWS basics, compute, storage, IAM, virtual networks and monitoring.</p>
+   </div>
+   <div class="journey-item">
+    <h3>04 — DevOps & Automation</h3>
+    <p>Git, scripting, CI/CD, infrastructure as code and practical projects.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="education">
+ <div class="container">
+  <div class="section-label">05 / EDUCATION</div>
+  <h2 class="section-title">Academic foundation.</h2>
+  <div class="panel" style="margin-top:30px">
+   <h3>🎓 Bachelor of Computer Applications</h3>
+   <p>BCA — First Year</p>
+   <p>Building a foundation in computer science, programming, mathematics and information technology.</p>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="contact">
+ <div class="container">
+  <div class="section-label">06 / CONNECT</div>
+  <h2 class="section-title">Let's connect.</h2>
+  <div class="contact-box">
+   <h3>Have a project or technical idea?</h3>
+   <p>I'm interested in learning, sharing ideas and connecting with people in technology.</p>
+   <div class="actions">
+    <a class="btn primary" href="https://github.com/samcloudops" target="_blank" rel="noopener">GitHub ↗</a>
+    <a class="btn secondary" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="container footer-inner">
+  <p>© <span id="year"></span> SAMCLOUD. ALL RIGHTS RESERVED.</p>
+  <p>BUILT WITH CURIOSITY & CODE.</p>
+  <p>CLOUD • DEVOPS • INFRASTRUCTURE</p>
+ </div>
+</footer>
+
+<script>
+const menu=document.getElementById('menu');
+const nav=document.getElementById('navLinks');
+menu.addEventListener('click',()=>{
+ nav.classList.toggle('open');
+ menu.textContent=nav.classList.contains('open')?'✕':'☰';
+});
+document.querySelectorAll('.nav-links a').forEach(link=>{
+ link.addEventListener('click',()=>{
+  nav.classList.remove('open');
+  menu.textContent='☰';
+ });
+});
+document.getElementById('year').textContent=new Date().getFullYear();
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{
+  if(entry.isIntersecting){
+   entry.target.classList.add('show');
+   observer.unobserve(entry.target);
+  }
+ });
+},{threshold:0.12});
+document.querySelectorAll('.section .container').forEach(el=>{
+ el.classList.add('reveal');
+ observer.observe(el);
+});
+</script>
+</body>
+</html>
